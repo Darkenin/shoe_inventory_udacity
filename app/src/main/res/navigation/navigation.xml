@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/firstPageFragment">
+
+
+    <fragment
+        android:id="@+id/firstPageFragment"
+        android:name="com.raphael.shoe_inventory_app.fragments.FirstPageFragment"
+        android:label="FirstPageFragment"
+        tools:layout="@layout/first_page">
+        <action
+            android:id="@+id/action_firstPageFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/firstPageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.raphael.shoe_inventory_app.fragments.details.DetailFragment"
+        android:label="detailFragment"
+        tools:layout="@layout/detail">
+        <action
+            android:id="@+id/action_detailFragment_to_storePageFragment"
+            app:destination="@+id/storePageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/storePageFragment"
+        android:name="com.raphael.shoe_inventory_app.fragments.StorePageFragment"
+        android:label="StorePageFragment"
+        tools:layout="@layout/store">
+        <action
+            android:id="@+id/action_storePageFragment_to_checkOutFragment"
+            app:destination="@+id/checkOutFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="shoes"
+            app:argType="com.raphael.shoe_inventory_app.data.Shoes" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkOutFragment"
+        android:name="com.raphael.shoe_inventory_app.fragments.CheckOutFragment"
+        android:label="CheckOutFragment"
+        tools:layout="@layout/checkout">
+        <action
+            android:id="@+id/action_checkOutFragment_to_finalPageFragment"
+            app:destination="@+id/finalPageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpToInclusive="false" />
+        <argument
+            android:name="shoes"
+            app:argType="com.raphael.shoe_inventory_app.data.Shoes" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalPageFragment"
+        android:name="com.raphael.shoe_inventory_app.fragments.FinalPageFragment"
+        android:label="FinalPageFragment"
+        tools:layout="@layout/final_page">
+        <action
+            android:id="@+id/action_finalPageFragment_to_detailFragment"
+            app:destination="@+id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/storePageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
